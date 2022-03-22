@@ -1,0 +1,60 @@
+<!-- (C) Copyright 2022 Douglas Lima (https://github.com/dreamycreat) -->
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>Todo App Test</title> 
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta description="description" content="Simple, but clean, todo-list with local data storage.">
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;700;900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+		<link rel="stylesheet" href="app_style.css">
+	</head>
+	<body id="content">
+		<div class="main-app-content">
+			<div class="text-logo">
+				SIMPLE TODO
+			</div>
+
+			<div class="todo-add-clear-buttons">
+				<div class="add-button-container">
+					<button class="add-todo-button" onclick="addTodo();">Add Todo</button>
+				</div>
+
+				<div class="clear-button-container">
+					<button class="clear-all-button" onclick="clearAllTodos();">Clear All</button>
+				</div>
+			</div>
+
+			<div class="todo-title-container">
+				<input id="todo-title" class="todo-title" type="text" placeholder="NEW TODO" maxlength="25"/>
+			</div>
+
+			<div class="todo-date-container">
+				<input id="due-date" class="todo-date" type="date"/>
+			</div>
+
+			<div class="todos">
+				<div class="todos-todo-header">
+					<div class="todos-todo-header-text">TODOS</div>
+					<div id="todo-list"></div>
+				</div>
+
+				<div class="todos-done-header">
+					<div class="todos-done-header-text">DONE</div>
+					<div id="todo-checked-list"></div>
+				</div>
+			</div>
+		</div>
+	
+		<script src="todo_list_app.js"></script>
+
+		<footer>
+			<p>{} 4fun, by <a href="https://github.com/dreamycreat" target="_blank">Douglas Lima</a> (2022)</p>
+		</footer>
+	</body>
+</html>

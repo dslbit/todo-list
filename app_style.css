@@ -1,0 +1,465 @@
+/*
+ * (C) Copyright 2022 Douglas Lima (https://github.com/dreamycreat) 
+*/
+
+/*
+ * Colors
+*/
+:root {
+	/* * Color Palette (SWEETIE 16): https://lospec.com/palette-list/sweetie-16 */
+	--bg-color: #1a1c2c;
+	--white: #f4f4f4;
+	--yellow: #ffcd75;
+	--dark-green: #38b764;
+	--light-green: #a7f070;
+	--light-gray: #94b0c2;
+	--gray: #566c86;
+	--dark-gray: #333c57;
+	--light-blue: #73eff7;
+	--blue: #41a6f6;
+	--dark-blue: #3b5dc9;
+	--very-dark-blue: #29366f;
+	--red: #b13e53;
+	--dark-red: #4b1b23;
+	--orange: #ef7d57;
+	--dark-purple: #5d275d;
+}
+
+/*
+ * Mobile First
+*/
+@media only screen and (min-width: 1px) {
+	html {
+		font-family: Nunito, Arial, sans-serif;
+		font-size: 18px;
+		font-weight: 400;
+		color: var(--white);
+	}
+
+	body {
+		margin: 0px;
+		padding-bottom: 15rem;
+
+		background-color: var(--bg-color);
+	}
+
+	/*
+	 * Main content div
+	*/
+
+	div.main-app-content {
+		max-width: 1280px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	/*
+	 * Title
+	*/
+
+	div.text-logo {
+		margin-top: 0.5rem;
+		margin-bottom: 3rem;
+
+		border-bottom: 2px solid var(--yellow);
+
+		font-family: "Space Grotesk", Nunito, Arial, sans-serif;
+		font-size: 2rem;
+		text-align: center;
+		color: var(--yellow);
+	}
+
+	/*
+	 * Add and Clear buttons
+	*/
+
+	div.todo-add-clear-buttons {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+
+		margin-bottom: 1rem;
+	}
+
+	div.todo-add-clear-buttons button {
+		padding: 0.5rem 1rem;
+
+		border: none;
+
+		font-family: Nunito, Arial, sans-serif;
+		font-size: 1.2rem;
+
+		cursor: pointer;
+
+		transition: opacity 0.15s;
+	}
+
+	div.todo-add-clear-buttons button:hover {
+		opacity: 0.8;
+	}
+
+	div.todo-add-clear-buttons button:active {
+		opacity: 0.5;@
+	}
+
+	div.add-button-container {
+		display: flex;
+		justify-content: center;
+
+		width: 100%;
+	}
+
+	div.clear-button-container {
+		display: flex;
+		justify-content: center;
+
+		width: 100%;
+	}
+
+	button.add-todo-button {
+		width: 100%;
+
+		color: var(--white);
+		background-color: var(--dark-blue);
+	}
+
+	button.clear-all-button {
+		width: 100%;
+
+		color: var(--white);
+		background-color: var(--dark-blue);
+	}
+
+	button.add-todo-button:hover,
+	button.clear-all-button:hover {
+		text-decoration: underline;
+	}
+
+	/*
+	 * Todo title input
+	*/
+
+	div.todo-title-container {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+
+		padding: 0.15rem;
+		margin-bottom: 1rem;
+	}
+
+	input.todo-title {
+		padding: 0.4rem 1.2rem;
+
+		border: none;
+		border-radius: 1rem;
+		outline: none;
+
+		font-family: Nunito, Arial, sans-serif;
+		font-size: 1.1rem;
+		color: var(--white);
+		background-color: var(--dark-gray);
+	}
+
+	input.todo-title::placeholder {
+		color: var(--gray);
+	}
+
+	/*
+	 * Todo due date input
+	*/
+
+	div.todo-date-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+
+		margin-bottom: 3rem;
+	}
+
+	input.todo-date {
+		overflow: hidden;
+
+		padding: 0.4rem 0.9rem;
+
+		border: none;
+		border-radius: 1rem;
+		outline: none;
+
+		font-family: "Space Grotesk", Nunito, Arial, sans-serif;
+		font-size: 1rem;
+		letter-spacing: 0.15rem;
+		color: var(--white);
+		background-color: var(--dark-gray);
+
+		cursor: pointer;
+	}
+
+	input::-webkit-datetime-edit-text {
+		color: var(--gray);
+	}
+
+	input::-webkit-datetime-edit-month-field,
+	input::-webkit-datetime-edit-day-field,
+	input::-webkit-datetime-edit-year-field {
+		color: var(--gray);
+	}
+
+	input::-webkit-calendar-picker-indicator {
+		filter: invert(1);
+	}
+
+	input.todo-date::-webkit-datetime-edit {
+		padding: 0.2rem;
+	}
+
+	/*
+	 * Todos style
+	*/
+
+	div.todos {
+		font-family: "Space Grotesk", Nunito, Arial, sans-serif;
+		text-align: center;
+	}
+
+	div.todos-todo-header {
+		margin-bottom: 3rem;
+	}
+
+	div.todos-todo-header-text {
+		padding: 0.5rem 0rem;
+
+		color: var(--white);
+		background-color: var(--orange);
+	}
+
+	div.todos-done-header-text {
+		padding: 0.5rem 0rem;
+
+		color: var(--white);
+		background-color: var(--dark-green);
+	}
+
+	div#todo-list,
+	div#todo-checked-list {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: start;
+	}
+
+	div.todos-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+
+		width: 100%;
+		height: 1.5rem;
+
+		margin-top: 0.5rem;
+	}
+
+	label.todo-checkbox-container {
+		display: flex;
+		align-items: center;
+		position: relative;
+	}
+
+	/* checkbox personalizada */
+	input.todo-checkbox {
+		position: absolute;
+		top: -0.375rem;
+		left: 0rem;
+		height: 0.75rem;
+		width: 0.75rem;
+		
+	}
+
+	label.todo-text-label,
+	label.done-text-label {
+		padding-left: 1rem;
+
+		font-size: 0.75rem;
+
+		word-wrap: break-word;
+	}
+
+	label.todo-text-label {
+		color: var(--orange);
+	}
+
+	label.done-text-label {
+		color: var(--dark-green);
+	}
+
+	label.todo-text-label span,
+	label.done-text-label span {
+		font-size: 0.6rem;
+		text-decoration: none;
+		color: var(--gray);
+	}
+
+	div.edit-delete-buttons-container {
+		display: flex;
+	}
+
+	div.todo-edit-button-container,
+	div.todo-delete-button-container {
+		display: flex;
+		align-items: center;
+		position: relative;
+
+		width: 0.7rem;
+		height: 0.7rem;
+
+		margin: 0rem 1.2rem;
+	}
+
+	div.todo-edit-button-container,
+	div.todo-delete-button-container {
+		margin-left: 0.1rem;
+	}
+
+	div.todo-edit-button-container {
+		margin-left: 0.2rem;
+	}
+
+	img.edit-button-icon,
+	img.delete-button-icon {
+		width: 0.65rem;
+
+		filter: invert(1);
+
+		cursor: pointer;
+	}
+
+	button.todo-edit-button,
+	button.todo-delete-button {
+		position: absolute;
+		
+		width: 0.5rem;
+		height: 0.5rem;
+		
+		border: none;
+
+		background-color: rgba(0, 0, 0, 0);
+
+		cursor: pointer;
+	}
+
+	/*
+	 * Todos (editing) styles
+	*/
+
+	input.edit-todo-text,
+	input.edit-todo-date {
+		padding: 0.0rem 0.3rem;
+
+		height: 90%;
+
+		outline: none;
+		border: none;
+		border-radius: 3px;
+
+		font-family: "Space Grotesk", Nunito, Arial, sans-serif;
+		font-size: 0.5rem;
+		color: var(--white);
+		background-color: var(--dark-gray);
+	}
+
+	div.done-cancel-buttons-container {
+		height: 100%;
+	}
+
+	button.done-editing-button,
+	button.cancel-editing-button {
+		padding: 0.0rem 0.3rem;
+		margin: 0rem 0.35rem;
+
+		height: 90%;
+
+		border: none;
+		border-radius: 3px;
+
+		font-family: "Space Grotesk", Nunito, Arial, sans-serif;
+		font-size: 0.45rem;
+		color: var(--white);
+		background-color: var(--gray);
+
+		cursor: pointer;
+	}
+
+	/*
+	 * Footer
+	*/
+
+	footer {
+		margin-top: 5rem;
+
+		font-family: "Space Grotesk", Nunito, Arial, sans-serif;
+		font-size: 0.65rem;
+		color: var(--yellow);
+		text-align: center;
+	}
+
+	footer a {
+		color: var(--yellow);
+	}
+}
+
+@media only screen and (min-width: 500px) {
+	html {
+		font-size: 26px;
+	}
+}
+
+@media only screen and (min-width: 900px) {
+	html {
+		font-size: 22px;
+	}
+
+	div.todos {
+		display: flex;
+		width: 100%;
+	}
+
+	div.todos-todo-header {
+		margin-right: 1rem;
+	}
+
+	div.todos-done-header {
+		margin-left: 1rem;
+	}
+
+	div.todos-todo-header,
+	div.todos-done-header {
+		width: 100%;
+	}
+
+	div.todos-container {
+		justify-content: space-between;
+	}
+
+
+}
+
+
+@media only screen and (min-width: 1000px) {
+	html {
+		font-size: 26px;
+	}
+}
+
+@media only screen and (min-width: 1100px) {
+	html {
+		font-size: 28px;
+	}
+}
+
+@media only screen and (min-width: 1200px) {
+	html {
+		font-size: 30px;
+	}
+}
